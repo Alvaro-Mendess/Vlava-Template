@@ -56,6 +56,25 @@ fetch("http://localhost:3000/services") //AJAX Asynchronous JavaScript And XML
 
         });
     })
+//Heroku Hosted API https://hostapi211.herokuapp.com/
+
+fetch("https://hostapi211.herokuapp.com/services") //AJAX Asynchronous JavaScript And XML
+    .then(response => response.json())
+    .then(json => {
+        json.Services.forEach(element => {
+            var services = document.getElementById("Services");
+            var ser = document.createElement("div");
+            var content = original;
+            content = content.replace("TITTLE", element.A);
+            content = content.replace("DESCRIPTION", element.B);
+
+            ser.innerHTML = content;
+            ser.className = "col-lg-4 col-md-6 icon-box";
+
+            services.appendChild(ser);
+
+        });
+    })
 
 /*for (let i = 0; i < 6; i++) {
 
